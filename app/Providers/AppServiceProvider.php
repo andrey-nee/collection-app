@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Добавляем директиву @linkactive
+        // которая проверяет адресную строку и добавляет класс active
+        Blade::directive('linkactive', function ($route) {
+            return "<?php echo request()->is($route) ? 'active' : null; ?>";
+          });
     }
 }
