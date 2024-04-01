@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\CollectionController;
 */
 
 Route::get('/', [CollectionController::class, 'welcome'])->name('welcome');
-Route::get('/films', [CollectionController::class, 'films'])->name('films');
+Route::get('/films', [FilmController::class, 'index'])->name('films');
 // Route::get('/{page}', [CollectionController::class, 'loadPage'])->name('load.page');
 
 Auth::routes();
