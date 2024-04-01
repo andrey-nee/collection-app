@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('title')
-Collection | Главная
+  Collection | Главная
 @endsection
 
 @section('page-title')
-Главная страница
+  Главная страница
 @endsection
 
 @section('content')
-
-<div class="table-responsive small py-3">
+  <div class="table-responsive small py-3">
     <table class="table table-striped table-sm">
       <thead>
         <tr>
@@ -30,5 +29,4 @@ Collection | Главная
       </tbody>
     </table>
   </div>
-
 @endsection
