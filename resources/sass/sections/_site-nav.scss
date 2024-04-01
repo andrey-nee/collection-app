@@ -1,0 +1,8 @@
+.site-nav__link {
+    color: #ffffff;
+
+    &.active {
+        color: $color-main-1;
+        pointer-events: none;
+    }
+}
