@@ -14,7 +14,7 @@ use App\Http\Controllers\CollectionController;
 |
 */
 
-Route::get('/welcome', [CollectionController::class, 'welcome'])->name('welcome');
+Route::get('/', [CollectionController::class, 'welcome'])->name('welcome');
 Route::get('/films', [CollectionController::class, 'films'])->name('films');
 // Route::get('/{page}', [CollectionController::class, 'loadPage'])->name('load.page');
 

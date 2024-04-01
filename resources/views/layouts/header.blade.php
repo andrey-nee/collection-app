@@ -7,7 +7,7 @@
         </a>
 
         <ul class="site-nav nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="{{ route('welcome') }}" class="site-nav__link nav-link px-2 @linkactive('welcome')" data-page="welcome">Главная</a></li>
+          <li><a href="{{ route('welcome') }}" class="site-nav__link nav-link px-2 @linkactive('/')" data-page="welcome">Главная</a></li>
           <li><a href="{{ route('films') }}" class="site-nav__link nav-link px-2 @linkactive('films')" data-page="films">Фильмы</a></li>
         </ul>
 
