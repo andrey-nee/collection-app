@@ -14,8 +14,9 @@ use App\Http\Controllers\CollectionController;
 |
 */
 
-Route::get('/', [CollectionController::class, 'index'])->name('welcome');
+Route::get('/welcome', [CollectionController::class, 'welcome'])->name('welcome');
 Route::get('/films', [CollectionController::class, 'films'])->name('films');
+// Route::get('/{page}', [CollectionController::class, 'loadPage'])->name('load.page');
 
 Auth::routes();
 
