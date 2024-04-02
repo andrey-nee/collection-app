@@ -23,14 +23,16 @@ Collection | Фильмы
         </tr>
       </thead>
       <tbody>
+        @foreach($films as $film)
         <tr>
           <td>1</td>
-          <td>random</td>
-          <td>data</td>
-          <td>1</td>
-          <td>1991</td>
-          <td>name</td>
+          <td>{{ $film->name }}</td>
+          <td>{{ $film->description }}</td>
+          <td>{{ $film->genre_id }}</td>
+          <td>{{ $film->year }}</td>
+          <td>{{ $film->director_id }}</td>
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>
