@@ -1,0 +1,12 @@
+.table-films {
+  &__row > *:nth-child(2) {
+    width: 240px;
+  }
+  &__data {
+    text-align: center;
+  }
+  &__data img {
+    width: 200px;
+    height: auto;
+  }
+}
