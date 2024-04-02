@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 
 class FilmController extends Controller
 {
-    public function index() {
-      $films = Film::orderBy('name')->take(10)->get();
+  public function index()
+  {
+    $films = Film::orderBy('name')->take(10)->get();
 
-        return view('films', [
-          'films' => $films
-        ]);
-    }
+    return view('films', [
+      'films' => $films
+    ]);
+  }
 }

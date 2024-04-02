@@ -23,9 +23,19 @@ Collection | Фильмы
         </tr>
       </thead>
       <tbody>
-        @foreach($films as $film)
-        <tr>
-          <td>1</td>
+        @foreach ($films as $film)
+          @php
+            $image = '';
+            if (count($film->images) > 0) {
+                $image = $film->images[0]['image'];
+            } else {
+                $image = 'no_image.jpg';
+            }
+          @endphp
+
+          <tr class="table-films__row">
+            <td class="table-films__data">{{ $loop->iteration }}</td> {{-- $loop->iteration (встроено в Laravel) считает кол-во итераций внутри @foreach --}}
+            <td><img src="/images/{{ $image }}" alt="{{ $film->name }}"></td>
           <td>{{ $film->name }}</td>
           <td>{{ $film->description }}</td>
           <td>{{ $film->genre_id }}</td>
@@ -36,5 +46,4 @@ Collection | Фильмы
       </tbody>
     </table>
   </div>
-
 @endsection
