@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use Illuminate\Http\Request;
-use App\Models\Film;
 
 class CollectionController extends Controller
 {
   public function welcome()
   {
-    return view('welcome');
+    $collections = Collection::orderBy('name')->paginate(10);
+    return view('welcome', compact('collections'));
   }
 
   // public function loadPage($page) {
