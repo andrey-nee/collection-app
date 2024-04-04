@@ -13,9 +13,9 @@ class FilmImageSeeder extends Seeder
      */
     public function run(): void
     {
-      for($i = 1; $i <= 3; $i++)
+      for($i = 1; $i <= 30; $i++)
         DB::table('film_images')->insert([
-          'image' => 'film_image_'.$i,
+          'image' => 'film_image_'.$i.'.jpg',
           'film_id' => $i
         ]);
     }
