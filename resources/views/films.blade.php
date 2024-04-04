@@ -10,7 +10,7 @@
 
 @section('content')
   <div class="table-responsive small py-3 films">
-    <table class="table table-striped table-sm table-films">
+    <table class="table table-hover table-bordered table-striped table-sm table-films">
       <thead class="table-films__head">
         <tr class="table-films__row">
           <th scope="col" class="table-films__header">#</th>
@@ -37,7 +37,7 @@
           <tr class="table-films__row">
             <td class="table-films__data">{{ $loop->iteration }}</td> {{-- $loop->iteration (встроено в Laravel) считает кол-во итераций внутри @foreach --}}
             <td class="table-films__data table-films__film-image"><img src="/images/{{ $image }}" alt="{{ $film->name }}"></td>
-            <td class="table-films__data">{{ $film->name }}</td>
+            <td class="table-films__data">{{ $film->name_ru }}</td>
             <td class="table-films__data">{{ $film->description }}</td>
             <td class="table-films__data">{{ $film->genre_id }}</td>
             <td class="table-films__data">{{ $film->year }}</td>
