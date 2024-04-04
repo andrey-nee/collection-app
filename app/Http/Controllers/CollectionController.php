@@ -13,6 +13,11 @@ class CollectionController extends Controller
     return view('welcome', compact('collections'));
   }
 
+  public function show($id)
+  {
+    return view('welcome')->with('id', $id);
+  }
+
   // public function loadPage($page) {
   //     $content = view($page)->render();
   //     return responce()->json(['content' => $content]);
