@@ -1,8 +1,6 @@
 .table-films {
-  &__row > *:nth-child(2) {
+  &__film-image {
     width: 240px;
-  }
-  &__data {
     text-align: center;
   }
   &__data img {
