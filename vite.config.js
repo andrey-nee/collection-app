@@ -5,6 +5,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
+              // 'resources/js/jquery-3.7.1.min.js',
                 'resources/css/bootstrap.min.css',
                 'resources/sass/app.scss',
                 'resources/js/bootstrap.bundle.min.js',
