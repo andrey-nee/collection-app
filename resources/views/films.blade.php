@@ -121,11 +121,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="" id="insertData"></div>
       </div>
     </div>
   </div>
@@ -133,31 +129,37 @@
 
 @endsection
 
+@section('custom-script')
 <script>
-  $(document).ready(function {
-
-    $('.row-click').on('click', function() {
+  $(document).ready(function() {
+    $('.table-films__row').on('click', function() {
       let id = $(this).data('id');
       console.log(id);
+
+      // Получаем CSRF-токен из мета-тега
+      var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+      // Очищаем содержимое модального окна перед загрузкой новых данных
       $('#insertData').empty();
+
+      // Отправляем AJAX-запрос для получения информации о фильме
       $.ajax({
         type: 'post',
-        url: "{{ route('bxo-report.edit') }}",
+        url: "{{ route('filmsInfoContent') }}",
         data: {
           'id': id
         },
         headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          'X-CSRF-TOKEN': csrfToken // Передаем CSRF-токен в заголовке запроса
         },
         success: function(response) {
-          $('#insertData').html(response);
+          $('#insertData').html(response); // Вставляем полученные данные в модальное окно
+        },
+        error: function(xhr, status, error) {
+          console.error(xhr.responseText); // Выводим сообщение об ошибке в консоль
         }
-      })
-    })
-
-    setTimeout(() => {
-      $('#FlashMsg').hide();
-    }, 4500);
-
-  })
+      });
+    });
+  });
 </script>
+@endsection

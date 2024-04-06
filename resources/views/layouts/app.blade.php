@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>@yield('title')</title>
   @vite(['resources/css/bootstrap.min.css', 'resources/sass/app.scss', 'resources/js/bootstrap.bundle.min.js', 'resources/js/app.js'])
 </head>
@@ -38,6 +39,12 @@
   </div>
 
   @include('layouts.footer')
+
+  {{-- Если в блейдах у вас есть скрипты написанные на jQuery, --}}
+  {{-- нужно подключить jQuery напрямую, а НЕ через Vite. --}}
+  {{-- Подробно см. комментарии выше в <head> --}}
+  @yield('custom-script')
+
 </body>
 
 </html>
