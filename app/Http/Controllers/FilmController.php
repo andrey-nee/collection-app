@@ -15,4 +15,11 @@ class FilmController extends Controller
     return view('films', compact('films'));
     // Тут compact('films') это то же самое что и ['films' => $films]
   }
+
+  public function info(Request $request)
+  {
+    $id = $request->id;
+    $data = Film::findOrFail($id);
+    return view('layouts.modal-films', compact('data'));
+  }
 }
