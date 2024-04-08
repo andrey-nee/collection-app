@@ -12,7 +12,7 @@ class FilmController extends Controller
     // $films = Film::orderBy('name')->take(10)->get();
     $films = Film::orderByRaw("CAST(REGEXP_SUBSTR(name_ru, '^[A-Za-z]+') AS CHAR), CAST(REGEXP_SUBSTR(name, '\\d+$') AS UNSIGNED)")->paginate(10);
 
-    return view('films', compact('films'));
+    return view('sections.films.films', compact('films'));
     // Тут compact('films') это то же самое что и ['films' => $films]
   }
 
@@ -20,6 +20,6 @@ class FilmController extends Controller
   {
     $id = $request->id;
     $data = Film::findOrFail($id);
-    return view('layouts.modal-films', compact('data'));
+    return view('ajax.films-info-content', compact('data'));
   }
 }

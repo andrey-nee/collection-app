@@ -10,12 +10,12 @@ class CollectionController extends Controller
   public function welcome()
   {
     $collections = Collection::orderBy('name')->paginate(10);
-    return view('welcome', compact('collections'));
+    return view('sections.welcome.welcome', compact('collections'));
   }
 
   public function show($id)
   {
-    return view('welcome')->with('id', $id);
+    return view('sections.welcome.welcome')->with('id', $id);
   }
 
   // public function loadPage($page) {
