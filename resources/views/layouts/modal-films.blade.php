@@ -1,5 +1,5 @@
 <div class="table-responsive small py-3 films">
-  @csrf
+  {{-- @csrf --}}
   <table class="table table-hover table-bordered table-striped table-sm table-films">
 
     <thead class="table-films__head">
