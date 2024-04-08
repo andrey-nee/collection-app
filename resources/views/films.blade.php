@@ -146,11 +146,21 @@
         type: 'post',
         url: "{{ route('filmsInfoContent') }}",
         data: {
-          'id': id
+          'id': id,
+          '_token': '{{ csrf_token() }}'
         },
-        headers: {
-          'X-CSRF-TOKEN': csrfToken // Передаем CSRF-токен в заголовке запроса
-        },
+
+        // ЛИБО добавляем в заголовке app.blade.php следующую строку:
+        // <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        // И передаем CSRF-токен в заголовке запроса:
+        // data: {
+          //   'id': id
+          // },
+          // headers: {
+            //   'X-CSRF-TOKEN': csrfToken // Передаем CSRF-токен в заголовке запроса
+            // },
+
         success: function(response) {
           $('#insertData').html(response); // Вставляем полученные данные в модальное окно
         },
