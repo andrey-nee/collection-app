@@ -27,6 +27,7 @@
       </tbody>
     </table>
 
+    <!-- Table pagination -->
     <div id="pagination_links">
       {{ $films->links('pagination::bootstrap-5') }}
     </div>
@@ -42,13 +43,13 @@
 
 @section('custom-script')
   <script>
+    // Film table paginating
     $(document).ready(function() {
       $(document).on('click', '#pagination_links a', function(e) {
         e.preventDefault();
 
         var url = $(this).attr('href');
         fetch_data(url);
-        console.log('paginator click');
       });
     });
 
@@ -60,19 +61,15 @@
         success: function(data) {
           var $data = $(data);
           var $filteredData = $data.find('#items_container').html();
-          $('#items_container').html($filteredData );
-
-          // console.log($filteredData);
-
-          // $('#items_container').html(data);
+          $('#items_container').html($filteredData);
         }
       });
     }
 
+    // Film info modal
     $(document).ready(function() {
       $('.table-films__row').on('click', function() {
         let id = $(this).data('id');
-        // console.log(id);
 
         // Получаем CSRF-токен из мета-тега
         var csrfToken = $('meta[name="csrf-token"]').attr('content');
@@ -93,7 +90,6 @@
 
           success: function(response) {
             $('#insertData').html(response); // Вставляем полученные данные в модальное окно
-            // console.log('Data inserted successfuly!');
           },
           error: function(xhr, status, error) {
             console.error(xhr.responseText); // Выводим сообщение об ошибке в консоль

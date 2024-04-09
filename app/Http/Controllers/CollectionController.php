@@ -17,10 +17,4 @@ class CollectionController extends Controller
   {
     return view('sections.welcome.welcome')->with('id', $id);
   }
-
-  // public function loadPage($page) {
-  //     $content = view($page)->render();
-  //     return responce()->json(['content' => $content]);
-  // }
-
 }

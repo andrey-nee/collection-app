@@ -16,13 +16,11 @@ use App\Http\Controllers\FilmController;
 */
 
 Route::get('/', [CollectionController::class, 'index'])->name('welcome.index');
-// Route::get('/films', [FilmController::class, 'index'])->name('films');
+Route::get('/films', [FilmController::class,'index'])->name('films.index');
 
 Route::post('/films/info', [FilmController::class, 'info'])->name('filmsInfoContent');
-// Route::get('/{page}', [CollectionController::class, 'loadPage'])->name('load.page');
-
-Route::get('/films', [FilmController::class,'index'])->name('films.index');
 Route::get('/films/fetch_data', [FilmController::class,'fetch_data'])->name('films.fetch_data');
+
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

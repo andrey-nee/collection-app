@@ -1,10 +1,8 @@
 <div class="table-responsive small py-3 films">
-  {{-- @csrf --}}
   <table class="table table-hover table-bordered table-striped table-sm table-films">
 
     <thead class="table-films__head">
       <tr class="table-films__row">
-        {{-- <th scope="col" class="table-films__header">Обложка</th> --}}
         <th scope="col" class="table-films__header">Название</th>
         <th scope="col" class="table-films__header">Описание</th>
         <th scope="col" class="table-films__header">Жанр</th>
@@ -15,8 +13,6 @@
 
     <tbody>
       <tr class="table-films__row" data-bs-toggle="modal" data-bs-target="#filmInfo" data-id="{{ $data->id }}">
-        {{-- <td class="table-films__data table-films__film-image"><img src="/images/{{ $image }}"
-            alt="{{ $data->name }}"></td> --}}
         <td class="table-films__data">{{ $data->name_ru }}</td>
         <td class="table-films__data">{{ $data->description }}</td>
         <td class="table-films__data">{{ $data->genre_id }}</td>

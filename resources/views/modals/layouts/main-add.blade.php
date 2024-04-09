@@ -1,4 +1,3 @@
-{{-- <div class="modal fade" id="newCollection" tabindex="-1" aria-labelledby="newCollectionLabel" aria-hidden="true"> --}}
 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -17,7 +16,6 @@
 </div>
 
 <div class="d-flex justify-content-center">
-  {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newCollection"> --}}
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
     Добавить @yield('modal-button-title')
   </button>
