@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CollectionController extends Controller
 {
-  public function welcome()
+  public function index()
   {
     $collections = Collection::orderBy('name')->paginate(10);
     return view('sections.welcome.welcome', compact('collections'));
