@@ -48,7 +48,7 @@
       $(document).on('click', '#pagination_links a', function(e) {
         e.preventDefault();
 
-        var url = $(this).attr('href');
+        let url = $(this).attr('href');
         fetch_data(url);
       });
     });
@@ -59,8 +59,8 @@
         type: 'get',
         dataType: 'html',
         success: function(data) {
-          var $data = $(data);
-          var $filteredData = $data.find('#items_container').html();
+          let $data = $(data);
+          let $filteredData = $data.find('#items_container').html();
           $('#items_container').html($filteredData);
         }
       });
@@ -72,7 +72,7 @@
         let id = $(this).data('id');
 
         // Получаем CSRF-токен из мета-тега
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        let csrfToken = $('meta[name="csrf-token"]').attr('content');
 
         // Очищаем содержимое модального окна перед загрузкой новых данных
         $('#insertData').empty();
