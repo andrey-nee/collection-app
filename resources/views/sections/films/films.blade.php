@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-  <div class="table-responsive small py-3 films">
+  <div class="table-responsive small py-3 films" id="items_container">
     <table class="table table-hover table-bordered table-striped table-sm table-films">
       <thead class="table-films__head">
         <tr class="table-films__row">
@@ -27,7 +27,9 @@
       </tbody>
     </table>
 
-    {{ $films->links() }}
+    <div id="pagination_links">
+      {{ $films->links('pagination::bootstrap-5') }}
+    </div>
 
   </div>
 
@@ -40,6 +42,33 @@
 
 @section('custom-script')
   <script>
+    $(document).ready(function() {
+      $(document).on('click', '#pagination_links a', function(e) {
+        e.preventDefault();
+
+        var url = $(this).attr('href');
+        fetch_data(url);
+        console.log('paginator click');
+      });
+    });
+
+    function fetch_data(url) {
+      $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'html',
+        success: function(data) {
+          var $data = $(data);
+          var $filteredData = $data.find('#items_container').html();
+          $('#items_container').html($filteredData );
+
+          // console.log($filteredData);
+
+          // $('#items_container').html(data);
+        }
+      });
+    }
+
     $(document).ready(function() {
       $('.table-films__row').on('click', function() {
         let id = $(this).data('id');
