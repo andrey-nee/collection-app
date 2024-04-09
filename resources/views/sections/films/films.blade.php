@@ -68,7 +68,7 @@
 
     // Film info modal
     $(document).ready(function() {
-      $('.table-films__row').on('click', function() {
+      $('#items_container').on('click', '.table-films__row', function() {
         let id = $(this).data('id');
 
         // Получаем CSRF-токен из мета-тега
