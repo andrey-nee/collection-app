@@ -19,6 +19,6 @@
 <div class="d-flex justify-content-center">
   {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newCollection"> --}}
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
-    Добавить новую коллекцию
+    Добавить @yield('modal-button-title')
   </button>
 </div>

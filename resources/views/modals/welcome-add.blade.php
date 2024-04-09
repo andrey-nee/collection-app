@@ -20,3 +20,7 @@
   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
   <button type="button" class="btn btn-primary" type="submit">Добавить</button>
 @endsection
+
+@section('modal-button-title')
+новую коллекцию
+@endsection
