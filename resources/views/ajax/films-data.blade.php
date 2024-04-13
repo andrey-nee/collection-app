@@ -1,12 +1,12 @@
 @foreach ($films as $film)
   @php
-  $image = '';
-  if (count($film->images) > 0) {
-      $image = $film->images[0]['image'];
-  } else {
-      $image = 'no_image.jpg';
-  }
-@endphp
+    $image = '';
+    if (count($film->images) > 0) {
+        $image = $film->images[0]['image'];
+    } else {
+        $image = 'no_image.jpg';
+    }
+  @endphp
 
   <tr class="table-films__row" data-bs-toggle="modal" data-bs-target="#filmInfo" data-id="{{ $film->id }}">
     <td class="table-films__data">{{ $loop->iteration }}</td> {{-- $loop->iteration (встроено в Laravel) считает кол-во итераций внутри @foreach --}}
