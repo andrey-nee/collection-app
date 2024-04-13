@@ -43,29 +43,6 @@
 
 @section('custom-script')
   <script>
-    // Film table paginating
-    $(document).ready(function() {
-      $(document).on('click', '#pagination_links a', function(e) {
-        e.preventDefault();
-
-        let url = $(this).attr('href');
-        fetch_data(url);
-      });
-    });
-
-    function fetch_data(url) {
-      $.ajax({
-        url: url,
-        type: 'get',
-        dataType: 'html',
-        success: function(data) {
-          let $data = $(data);
-          let $filteredData = $data.find('#items_container').html();
-          $('#items_container').html($filteredData);
-        }
-      });
-    }
-
     // Film info modal
     $(document).ready(function() {
       $('#items_container').on('click', '.table-films__row', function() {

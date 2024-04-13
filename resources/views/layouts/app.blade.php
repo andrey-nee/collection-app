@@ -30,6 +30,31 @@
   {{-- Подробно см. комментарии выше в <head> --}}
   @yield('custom-script')
 
+  <script>
+    // Table paginating
+    $(document).ready(function() {
+      $(document).on('click', '#pagination_links a', function(e) {
+        e.preventDefault();
+
+        let url = $(this).attr('href');
+        fetch_data(url);
+      });
+    });
+
+    function fetch_data(url) {
+      $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'html',
+        success: function(data) {
+          let $data = $(data);
+          let $filteredData = $data.find('#items_container').html();
+          $('#items_container').html($filteredData);
+        }
+      });
+    }
+  </script>
+
 </body>
 
 </html>
