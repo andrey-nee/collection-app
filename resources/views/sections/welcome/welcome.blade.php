@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-  <div class="table-responsive small py-3 collections">
+  <div class="table-responsive small py-3 collections" id="items_container">
 
     <table class="table table-hover table-striped table-sm table-collections">
       <thead class="table-collections__head">
@@ -23,7 +23,7 @@
 
       <tbody>
         @foreach ($collections as $collection)
-          <tr class="table-collections__row">
+          <tr class="table-collections__row" data-name="{{ $collection->name }}">
             <td class="table-collections__data">{{ $loop->iteration }}</td>
             <td class="table-collections__data">{{ $collection->name }}</td>
             <td class="table-collections__data">{{ $collection->description }}</td>
@@ -42,4 +42,18 @@
 
   <!-- Modal Add New -->
   @include('modals.welcome-add')
+@endsection
+
+@section('custom-script')
+  <script>
+    // Collection table link
+    $(document).ready(function() {
+      $('#items_container').on('click', '.table-collections__row', function() {
+        const name = $(this).data('name').toLowerCase();
+        // Мы используем значение ячейки "name" из таблицы
+        // и формируем из него адрес для перехода
+        window.location.href = name;
+      })
+    })
+  </script>
 @endsection
