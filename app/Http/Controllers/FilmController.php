@@ -17,7 +17,7 @@ class FilmController extends Controller
   {
     $films = Film::paginate(10);
     if ($request->ajax()) {
-      return view('sections.films.films-data', ['films' => $films])->render();
+      return view('sections.films.films-data', compact('films'))->render();
     }
   }
 
