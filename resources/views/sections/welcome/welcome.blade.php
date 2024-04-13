@@ -33,7 +33,10 @@
       </tbody>
     </table>
 
-    {{ $collections->links() }}
+    <!-- Table pagination -->
+    <div id="pagination_links">
+      {{ $collections->links('pagination::bootstrap-5') }}
+    </div>
 
   </div>
 
