@@ -10,7 +10,7 @@
 
 @section('content')
   <div class="table-responsive small py-3 films" id="items_container">
-    <table class="table table-hover table-bordered table-striped table-sm table-films">
+    <table class="table table-hover table-striped table-sm table-films">
       <thead class="table-films__head">
         <tr class="table-films__row">
           <th scope="col" class="table-films__header">#</th>

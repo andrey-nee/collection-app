@@ -11,7 +11,7 @@
 @section('content')
   <div class="table-responsive small py-3 collections">
 
-    <table class="table table-hover table-bordered table-striped table-sm table-collections">
+    <table class="table table-hover table-striped table-sm table-collections">
       <thead class="table-collections__head">
         <tr class="table-collections__row">
           <th scope="col" class="table-collections__header">#</th>
