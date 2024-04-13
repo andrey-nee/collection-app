@@ -45,33 +45,13 @@
   <script>
     // Film info modal
     $(document).ready(function() {
+      // Обработчик события клика на элемент .table-films__row
       $('#items_container').on('click', '.table-films__row', function() {
         let id = $(this).data('id');
-
-        // Получаем CSRF-токен из мета-тега
-        let csrfToken = $('meta[name="csrf-token"]').attr('content');
-
-        // Очищаем содержимое модального окна перед загрузкой новых данных
-        $('#insertData').empty();
-
-        // Отправляем AJAX-запрос для получения информации о фильме
-        $.ajax({
-          type: 'post',
-          url: "{{ route('filmsInfoContent') }}",
-          data: {
-            'id': id
-          },
-          headers: {
-            'X-CSRF-TOKEN': csrfToken // Передаем CSRF-токен в заголовке запроса
-          },
-
-          success: function(response) {
-            $('#insertData').html(response); // Вставляем полученные данные в модальное окно
-          },
-          error: function(xhr, status, error) {
-            console.error(xhr.responseText); // Выводим сообщение об ошибке в консоль
-          }
-        });
+        let route = "{{ route('filmsInfoContent') }}"
+        // Вызываем функцию для отправки AJAX-запроса
+        // Функция лежит в app.blade.php
+        sendAjaxRequest(id, route);
       });
     });
   </script>

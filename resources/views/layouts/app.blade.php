@@ -41,6 +41,7 @@
       });
     });
 
+    // AJAX-запрос на перелистывание таблицы
     function fetch_data(url) {
       $.ajax({
         url: url,
@@ -50,6 +51,31 @@
           let $data = $(data);
           let $filteredData = $data.find('#items_container').html();
           $('#items_container').html($filteredData);
+        }
+      });
+    }
+
+    // AJAX-запрос на получение данных для Info-modal
+    function sendAjaxRequest(id, route) {
+      // Получаем CSRF-токен из мета-тега
+      let csrfToken = $('meta[name="csrf-token"]').attr('content');
+      // Очищаем содержимое модального окна перед загрузкой новых данных
+      $('#insertData').empty();
+      // Отправляем AJAX-запрос для получения информации о фильме
+      $.ajax({
+        type: 'post',
+        url: route,
+        data: {
+          'id': id
+        },
+        headers: {
+          'X-CSRF-TOKEN': csrfToken // Передаем CSRF-токен в заголовке запроса
+        },
+        success: function(response) {
+          $('#insertData').html(response); // Вставляем полученные данные в модальное окно
+        },
+        error: function(xhr, status, error) {
+          console.error(xhr.responseText); // Выводим сообщение об ошибке в консоль
         }
       });
     }
