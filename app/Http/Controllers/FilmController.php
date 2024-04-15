@@ -30,4 +30,9 @@ class FilmController extends Controller
       : $data->images->first()->image;
     return view('ajax.films-info-content', compact('data', 'image'));
   }
+
+  public function genre() {
+    $films = Film::with('genre')->get();
+    return view('sections.films.films', compact('genre'));
+  }
 }
