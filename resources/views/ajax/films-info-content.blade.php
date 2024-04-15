@@ -1,25 +1,13 @@
-<div class="table-responsive small py-3 films">
-  <table class="table table-hover table-bordered table-striped table-sm table-films">
-
-    <thead class="table-films__head">
-      <tr class="table-films__row">
-        <th scope="col" class="table-films__header">Название</th>
-        <th scope="col" class="table-films__header">Описание</th>
-        <th scope="col" class="table-films__header">Жанр</th>
-        <th scope="col" class="table-films__header">Год</th>
-        <th scope="col" class="table-films__header">Режиссер</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr class="table-films__row" data-bs-toggle="modal" data-bs-target="#filmInfo" data-id="{{ $data->id }}">
-        <td class="table-films__data">{{ $data->name_ru }}</td>
-        <td class="table-films__data">{{ $data->description }}</td>
-        <td class="table-films__data">{{ $data->genre_id }}</td>
-        <td class="table-films__data">{{ $data->year }}</td>
-        <td class="table-films__data">{{ $data->director_id }}</td>
-      </tr>
-    </tbody>
-
-  </table>
+<h2 class="modal-title fs-5">{{ $data->name_ru }}</h2>
+<p class="card-subtitle">Год: <span>{{ $data->year }}</span></p>
+<p class="card-subtitle">Жанр: <span>{{ $data->genre_id }}</span></p>
+<p class="card-subtitle">Режиссер: <span>{{ $data->director_id }}</span></p>
+<div class="row">
+  <div class="col-8">
+    <p class="card-subtitle">Описание:</p>
+    <p>{{ $data->description }}</p>
+  </div>
+  <div class="col-4" id="filmImageContainer">
+    <img id="filmImage" src="" alt="{{ $data->name_ru }}">
+  </div>
 </div>
