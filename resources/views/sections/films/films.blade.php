@@ -45,10 +45,11 @@
   <script>
     // Film info modal
     $(document).ready(function() {
-      // Обработчик события клика на элемент .table-films__row
+      // Обработчик клика на элемент .table-films__row
       $('#items_container').on('click', '.table-films__row', function() {
+        // Заполняем модалку данными
         let id = $(this).data('id');
-        let route = "{{ route('filmsInfoContent') }}"
+        let route = "{{ route('filmsInfoContent') }}";
         // Вызываем функцию для отправки AJAX-запроса
         // Функция лежит в app.blade.php
         sendAjaxRequest(id, route);
