@@ -19,4 +19,10 @@ class Film extends Model
   {
     return $this->belongsTo(Genre::class, 'genre_id');
   }
+
+  public function director(): BelongsTo
+  {
+    return $this->belongsTo(Director::class, 'director_id');
+  }
+
 }

@@ -35,4 +35,9 @@ class FilmController extends Controller
     $films = Film::with('genre')->get();
     return view('sections.films.films', compact('genre'));
   }
+
+  public function director() {
+    $film = Film::with('director')->get();
+    return view('section.films.films', compact('director'));
+  }
 }

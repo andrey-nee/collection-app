@@ -18,6 +18,6 @@
     <td class="table-films__data">{{ $film->description }}</td>
     <td class="table-films__data">{{ $film->genre->name }}</td>
     <td class="table-films__data">{{ $film->year }}</td>
-    <td class="table-films__data">{{ $film->director_id }}</td>
+    <td class="table-films__data">{{ $film->director->name }}</td>
   </tr>
 @endforeach
