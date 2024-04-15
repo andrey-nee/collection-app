@@ -8,6 +8,6 @@
     <p>{{ $data->description }}</p>
   </div>
   <div class="col-4" id="filmImageContainer">
-    <img id="filmImage" src="" alt="{{ $data->name_ru }}">
+    <img id="filmImage" src="/images/{{ $image }}" alt="{{ $data->name_ru }}">
   </div>
 </div>

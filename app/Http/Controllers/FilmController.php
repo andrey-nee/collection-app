@@ -24,7 +24,10 @@ class FilmController extends Controller
   public function info(Request $request)
   {
     $id = $request->id;
-    $data = Film::findOrFail($id);
-    return view('ajax.films-info-content', compact('data'));
+    $data = Film::with('images')->findOrFail($id);
+    $image = $data->images->isEmpty()
+      ? 'no_image.jpg'
+      : $data->images->first()->image;
+    return view('ajax.films-info-content', compact('data', 'image'));
   }
 }
