@@ -27,7 +27,7 @@
             <td class="table-collections__data">{{ $loop->iteration }}</td>
             <td class="table-collections__data">{{ $collection->name }}</td>
             <td class="table-collections__data">{{ $collection->description }}</td>
-            <td class="table-collections__data">unknown</td>
+            <td class="table-collections__data">{{ $count }}</td>
           </tr>
         @endforeach
       </tbody>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Film;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FilmController extends Controller
 {
@@ -50,6 +51,12 @@ class FilmController extends Controller
   public function director()
   {
     $film = Film::with('director')->get();
-    return view('section.films.films', compact('director'));
+    return view('sections.films.films', compact('director'));
+  }
+
+  public function count()
+  {
+    $count = Film::count();
+    return view('sections.films.films', compact('count'));
   }
 }
