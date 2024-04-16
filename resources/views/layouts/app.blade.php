@@ -79,6 +79,11 @@
         }
       });
     }
+
+    // Прячем класс .modal-footer, у которого нет дочерних элементов
+    $(document).ready(function() {
+      $('.modal-footer').not(':has(*)').css('display', 'none');
+    });
   </script>
 
 </body>
