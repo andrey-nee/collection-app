@@ -25,4 +25,11 @@ class Film extends Model
     return $this->belongsTo(Director::class, 'director_id');
   }
 
+  protected $fillable = [
+    'name_ru',
+    'description',
+    'genre_id',
+    'year',
+    'director_id',
+  ];
 }

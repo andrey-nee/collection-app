@@ -10,7 +10,7 @@ class FilmController extends Controller
 {
   public function index()
   {
-    $films = Film::orderByRaw("CAST(REGEXP_SUBSTR(name_ru, '^[A-Za-z]+') AS CHAR), CAST(REGEXP_SUBSTR(name, '\\d+$') AS UNSIGNED)")->paginate(10);
+    $films = Film::orderByRaw("CAST(REGEXP_SUBSTR(name_ru, '^[A-Za-z]+') AS CHAR), CAST(REGEXP_SUBSTR(name_ru, '\\d+$') AS UNSIGNED)")->paginate(10);
     return view('sections.films.films', compact('films'));
   }
 
@@ -58,5 +58,20 @@ class FilmController extends Controller
   {
     $count = Film::count();
     return view('sections.films.films', compact('count'));
+  }
+
+  public function addNew(Request $request) {
+    $validatedData = $request->validate([
+      'name_ru' => 'required|string|max:100',
+      'description' => 'required|string|max:255',
+      'genre_id' => 'required|string|max:100',
+      'year' => 'required|digits:4|integer|min:1900|max:'.(date('Y')+1),
+      'director_id' => 'required|string|max:100',
+    ]);
+
+    Film::create($validatedData);
+
+    return redirect()->back()->with('success', 'Данные успешно добавлены в базу данных.');
+
   }
 }

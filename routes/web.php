@@ -21,6 +21,8 @@ Route::get('/films', [FilmController::class,'index'])->name('films.index');
 Route::post('/films/info', [FilmController::class, 'info'])->name('filmsInfoContent');
 Route::get('/films/fetch_data', [FilmController::class,'fetch_data'])->name('films.fetch_data');
 
+Route::post('/films/add_new', [FilmController::class, 'addNew'])->name('films.add_new');
+
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

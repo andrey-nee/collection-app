@@ -4,49 +4,51 @@
 
 @section('modal-body')
   <p>Заполните поля и нажмите кнопку "Добавить" для создания</p>
-  <form id="form-new-collection" action="#">
+  <form id="form-new-film" method="POST" action="{{ route('films.add_new')}}">
+    @csrf
     <div class="mb-3">
-      <label for="collection-name-ru" class="col-form-label">
+      <label for="film-name-ru" class="col-form-label">
         Название<span class="required"></span>
       </label>
-      <input type="text" class="form-control" id="collection-name-ru" required>
+      <input type="text" class="form-control" id="film-name-ru" name="name_ru" required>
     </div>
     <div class="mb-3">
-      <label for="collection-description" class="col-form-label">
+      <label for="film-description" class="col-form-label">
         Описание<span class="required"></span>
       </label>
-      <input type="text" class="form-control" id="collection-description" required>
+      <input type="text" class="form-control" id="film-description" name="description" required>
     </div>
     <div class="mb-3">
-      <label for="collection-genre_id" class="col-form-label">
+      <label for="film-genre_id" class="col-form-label">
         Жанр<span class="required"></span>
       </label>
-      <input type="text" class="form-control" id="collection-genre_id" required>
+      <input type="text" class="form-control" id="film-genre_id" name="genre_id" required>
     </div>
     <div class="mb-3">
-      <label for="collection-year" class="col-form-label">
+      <label for="film-year" class="col-form-label">
         Год<span class="required"></span>
       </label>
-      <input type="text" class="form-control" id="collection-year" required>
+      <input type="text" class="form-control" id="film-year" name="year" required>
     </div>
     <div class="mb-3">
-      <label for="collection-director_id" class="col-form-label">
+      <label for="film-director_id" class="col-form-label">
         Режиссер<span class="required"></span>
       </label>
-      <input type="text" class="form-control" id="collection-director_id" required>
+      <input type="text" class="form-control" id="film-director_id" name="director_id" required>
     </div>
-    <div class="mb-3">
-      <label for="collection-image" class="col-form-label">
+    {{-- <div class="mb-3">
+      <label for="film-image" class="col-form-label">
         Обложка<span class="required"></span>
       </label>
-      <input type="text" class="form-control" id="collection-image" required>
-    </div>
+      <input type="text" class="form-control" id="film-image" name="image" required>
+    </div> --}}
+    <button type="submit" class="btn btn-primary">Добавить</button>
   </form>
 @endsection
 
 @section('modal-footer')
   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-  <button type="button" class="btn btn-primary" type="submit">Добавить</button>
+  {{-- <button type="submit" class="btn btn-primary">Добавить</button> --}}
 @endsection
 
 @section('modal-button-title')
