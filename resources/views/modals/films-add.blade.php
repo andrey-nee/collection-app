@@ -42,13 +42,12 @@
       </label>
       <input type="text" class="form-control" id="film-image" name="image" required>
     </div> --}}
-    <button type="submit" class="btn btn-primary">Добавить</button>
+    {{-- <button type="submit" class="btn btn-primary">Добавить</button> --}}
+    <div class="form__footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+      <button type="submit" class="btn btn-primary">Добавить</button>
+    </div>
   </form>
-@endsection
-
-@section('modal-footer')
-  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-  {{-- <button type="submit" class="btn btn-primary">Добавить</button> --}}
 @endsection
 
 @section('modal-button-title')
