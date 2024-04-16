@@ -34,7 +34,7 @@ class FilmController extends Controller
       : $data->images->first()->image;
 
     // Получаем жанр фильма
-    $genre = $data->genre->name;
+    $genre = $data->genre->name_ru;
 
     // Получаем режиссера фильма
     $director = $data->director->name;
