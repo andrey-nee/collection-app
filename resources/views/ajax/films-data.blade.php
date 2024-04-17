@@ -16,7 +16,9 @@
     </td>
     <td class="table-films__data">{{ $film->name_ru }}</td>
     <td class="table-films__data">{{ $film->description }}</td>
-    <td class="table-films__data">{{ $film->genre->name_ru }}</td>
+    <td class="table-films__data">
+      <span class="badge bg-warning text-dark">{{ $film->genre->name_ru }}</span>
+    </td>
     <td class="table-films__data">{{ $film->year }}</td>
     <td class="table-films__data">{{ $film->director->name }}</td>
   </tr>
