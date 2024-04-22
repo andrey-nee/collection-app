@@ -7,8 +7,10 @@ export default defineConfig({
             input: [
               // 'resources/js/jquery-3.7.1.min.js',
                 'resources/css/bootstrap.min.css',
+                'resources/css/datatables.min.css',
                 'resources/sass/app.scss',
                 'resources/js/bootstrap.bundle.min.js',
+                'resources/js/datatables.min.js',
                 'resources/js/app.js'
             ],
             refresh: true,
