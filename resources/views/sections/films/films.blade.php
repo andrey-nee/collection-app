@@ -10,7 +10,7 @@
 
 @section('content')
   <div class="table-responsive small py-3 films" id="items_container">
-    <table class="table table-hover table-striped table-sm table-films">
+    <table id="tableFilms" class="table table-hover table-striped table-sm table-films display" style="width:100%">
       <thead class="table-films__head">
         <tr class="table-films__row">
           <th scope="col" class="table-films__header">#</th>
@@ -53,6 +53,27 @@
         // Вызываем функцию для отправки AJAX-запроса
         // Функция лежит в app.blade.php
         sendAjaxRequest(id, route);
+      });
+    });
+    // DataTables Library
+    $(document).ready(function() {
+      $('#tableFilms').DataTable({
+        autoWidth: false,
+        columns: [{
+          width: '5%',
+        }, {
+          width: '15%',
+        }, {
+          width: '20%',
+        }, {
+          width: '35%',
+        }, {
+          width: '10%',
+        }, {
+          width: '5%',
+        }, {
+          width: '10%',
+        }, ],
       });
     });
   </script>
