@@ -27,11 +27,6 @@
       </tbody>
     </table>
 
-    <!-- Table pagination -->
-    <div id="pagination_links">
-      {{ $films->links('pagination::bootstrap-5') }}
-    </div>
-
   </div>
 
   <!-- Modal Add New -->
